@@ -1,0 +1,11 @@
+# Optional convenience: MongoDB only (no application container, no Dockerfile).
+#   docker compose -f scripts/docker-compose.mongo.yml up -d
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+volumes:
+  mongo_data:

@@ -1,0 +1,22 @@
+# secrets and local config
+.env
+.env.*
+!.env.example
+# python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+# node
+node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+# misc
+.DS_Store
+*.log
+*.zip

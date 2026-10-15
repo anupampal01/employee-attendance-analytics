@@ -1,0 +1,14 @@
+# Disposable MongoDB for tests only: port 27018, data in tmpfs (nothing persists, no user database is touched).
+#   docker compose -f scripts/docker-compose.test.yml up -d --wait
+services:
+  mongo-test:
+    image: mongo:7
+    ports:
+      - "27018:27017"
+    tmpfs:
+      - /data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
